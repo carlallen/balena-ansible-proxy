@@ -1,0 +1,13 @@
+version: '2'
+
+services:
+  ansible-proxy:
+    build: .
+    ports:
+      - "22:22"
+    volumes:
+      - /mnt:/mnt
+      - /var/run/balena.sock:/var/run/docker.sock
+    environment:
+      GITHUB_USER: carlallen
+    restart: unless-stopped
